@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boas Vindas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url("https://www.jornalquissama.com/wp-content/uploads/2021/08/capa_pegadinha_malandro.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .container {
+            text-align:left;
+            padding: 5px;
+            background-color: transparent; /* Adicionei um fundo branco semi-transparente */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(248, 247, 247, 0.1);
+        }
+
+        h1 {
+            
+            color: #f0f0f0;
+            margin-bottom: 5px;
+        }
+
+        #user-email {
+            font-weight: bold;
+            color: #f0f0f0;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 300px;
+            height: 300px;
+            margin-top: 20px;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Olá <span id="user-email"></span> 
+            Você caiu na pegadinha de Boas vindas</h1>
+    </div>
+
+    <script>
+        function getQueryVariable(variable) {
+            var query = window.location.search.substring(1);
+            var vars = query.split("&");
+            for (var i = 0; i < vars.length; i++) {
+                var pair = vars[i].split("=");
+                if (pair[0] === variable) {
+                    return decodeURIComponent(pair[1]);
+                }
+            }
+            return null;
+        }
+
+        var userEmail = getQueryVariable('email');
+        if (userEmail) {
+            document.getElementById('user-email').textContent = userEmail;
+        }
+    </script>
+</body>
+
+</html>
